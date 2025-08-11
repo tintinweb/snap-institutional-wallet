@@ -20,7 +20,7 @@ import { v4 as uuid } from 'uuid';
 
 import config from './config';
 import { renderInfoMessage } from './features/info-message/rendex';
-import { TOKEN_EXPIRED_EVENT } from './lib/custodian-types/constants';
+import { REFRESH_TOKEN_CHANGE_EVENT } from './lib/custodian-types/constants';
 import { custodianMetadata } from './lib/custodian-types/custodianMetadata';
 import { SignedMessageHelper } from './lib/helpers/signedmessage';
 import { TransactionHelper } from './lib/helpers/transaction';
@@ -266,12 +266,6 @@ export class CustodialKeyring implements Keyring {
       }
       const custodianApi = this.#getCustodianApi(wallet.details);
       this.#custodianApi.set(checksumAddress, custodianApi);
-      custodianApi.on(
-        TOKEN_EXPIRED_EVENT,
-        (payload: IRefreshTokenChangeEvent) => {
-          this.#handleTokenChangedEvent(payload).catch(logger.error);
-        },
-      );
     }
     return this.#custodianApi.get(checksumAddress) as ICustodianApi;
   }
@@ -283,6 +277,12 @@ export class CustodialKeyring implements Keyring {
       { refreshToken: details.token, refreshTokenUrl: details.refreshTokenUrl },
       details.custodianApiUrl,
       1000,
+    );
+    custodianApi.on(
+      REFRESH_TOKEN_CHANGE_EVENT,
+      (payload: IRefreshTokenChangeEvent) => {
+        this.#handleTokenChangedEvent(payload).catch(logger.error);
+      },
     );
     return custodianApi;
   }
@@ -329,6 +329,8 @@ export class CustodialKeyring implements Keyring {
       };
 
       // Clear cache
+
+      // Dereference the custodian api
       this.#custodianApi.delete(wallet.account.address);
 
       // Update state with new details
