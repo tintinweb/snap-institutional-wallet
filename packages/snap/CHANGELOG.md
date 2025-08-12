@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.4]
+### Fixed
+- Handle the case where the refresh token changes during onboarding (e.g. cubist) ([#70](https://github.com/MetaMask/snap-institutional-wallet/pull/70))
+
 ## [1.3.3]
 ### Changed
 - chore: disable old MMI custodians, add cubist prod ([#68](https://github.com/MetaMask/snap-institutional-wallet/pull/68))
@@ -83,7 +87,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Initial release
 
-[Unreleased]: https://github.com/MetaMask/snap-institutional-wallet/compare/v1.3.3...HEAD
+[Unreleased]: https://github.com/MetaMask/snap-institutional-wallet/compare/v1.3.4...HEAD
+[1.3.4]: https://github.com/MetaMask/snap-institutional-wallet/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/MetaMask/snap-institutional-wallet/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/MetaMask/snap-institutional-wallet/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/MetaMask/snap-institutional-wallet/compare/v1.3.0...v1.3.1
