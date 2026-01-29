@@ -368,7 +368,20 @@ export const custodianMetadata: (
     iconUrl:
       'https://assets-global.website-files.com/638a2693daaf8527290065a3/651802cf8d04ec5f1a09ce86_Logo.svg',
     isManualTokenInputSupported: true,
-    allowedOnboardingDomains: [], // Cubist does not support onboarding via a web page
+    allowedOnboardingDomains: ['app-gamma.signer.cubist.dev'],
+  },
+  {
+    refreshTokenUrl: 'https://beta.signer.cubist.dev/v0/oauth/token',
+    name: 'cubist-beta',
+    displayName: 'Cubist Beta',
+    production: false,
+    apiBaseUrl: 'https://beta.signer.cubist.dev/v0/mmi',
+    apiVersion: CustodianType.ECA3,
+    custodianPublishesTransaction: false,
+    iconUrl:
+      'https://assets-global.website-files.com/638a2693daaf8527290065a3/651802cf8d04ec5f1a09ce86_Logo.svg',
+    isManualTokenInputSupported: true,
+    allowedOnboardingDomains: ['app-beta.signer.cubist.dev', 'localhost:3000'],
   },
   {
     refreshTokenUrl: 'https://dg5z0qnzb9s65.cloudfront.net/v0/oauth/token',
@@ -381,7 +394,7 @@ export const custodianMetadata: (
     iconUrl:
       'https://assets-global.website-files.com/638a2693daaf8527290065a3/651802cf8d04ec5f1a09ce86_Logo.svg',
     isManualTokenInputSupported: true,
-    allowedOnboardingDomains: [], // Cubist does not support onboarding via a web page
+    allowedOnboardingDomains: [],
   },
   {
     refreshTokenUrl: 'https://prod.signer.cubist.dev/v0/oauth/token',
@@ -394,7 +407,7 @@ export const custodianMetadata: (
     iconUrl:
       'https://assets-global.website-files.com/638a2693daaf8527290065a3/651802cf8d04ec5f1a09ce86_Logo.svg',
     isManualTokenInputSupported: true,
-    allowedOnboardingDomains: [], // Cubist does not support onboarding via a web page
+    allowedOnboardingDomains: ['app.signer.cubist.dev'],
   },
   {
     refreshTokenUrl: 'http://localhost:3330/oauth/token',
